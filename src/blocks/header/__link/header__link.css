@@ -1,0 +1,27 @@
+@import url('./__item/link__item.css');
+@import url('./__item/_current/link__item_current.css');
+
+.header__link {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    position: relative;
+    padding-right: 68px;
+    margin-top: 9px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .header__link {
+        margin-top: 0;
+        padding-right: 9px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .header__link {
+        margin-top: 16px;
+        padding-right: 2px;
+    }
+}

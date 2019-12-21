@@ -1,0 +1,13 @@
+@import url('./__text_row_first/y-axes__text_row_first.css');
+
+.y-axes__text {
+    margin-top: 56px;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .y-axes__text {
+        margin-top: 24px;
+    }
+}

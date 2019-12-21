@@ -1,0 +1,22 @@
+.chart__item {
+    height: 24px;
+    background-color: #2f71e5;
+    margin-top: 56px;
+    color: #fff;
+    align-items: center;
+    display: flex;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    padding-left: 6px;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .chart__item {
+        margin-top: 24px;
+    }
+}

@@ -1,0 +1,7 @@
+@media screen and (max-width: 1024px) 
+{
+    .carousel__avatar {
+    width: 48px;
+    height: 48px;
+    }
+}

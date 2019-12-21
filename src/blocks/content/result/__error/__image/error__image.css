@@ -1,0 +1,7 @@
+.error__image {
+    background: url('../not-found_v1.png');
+    background-repeat: no-repeat;
+    width: 96px;
+    height: 96px;
+    margin: auto auto 25px;
+}

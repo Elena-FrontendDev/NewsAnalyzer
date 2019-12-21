@@ -1,0 +1,27 @@
+.skills__items {
+    display: flex;
+    margin-top: 82px;
+    justify-content: space-between;
+    width: 600px;
+}
+
+@media screen and (max-width: 1180px) 
+{
+    .skills__items {
+        margin-top: 0px;
+        margin-bottom: 33px;
+        width: 97.5%;
+    }
+}
+
+@media screen and (max-width: 580px)
+{
+    .skills__items {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding-left: 4px;
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+        text-align: center;
+    }
+}

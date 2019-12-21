@@ -1,0 +1,21 @@
+@import url('./link__item_current_black.css');
+
+.link__item_current {
+    color: #FFFFFF;
+    border-bottom: 3px solid #FFFFFF;
+    padding-bottom: 24px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .link__item_current {
+        padding-bottom: 18px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .link__item_current {
+        padding-bottom: 17px;
+    }
+}

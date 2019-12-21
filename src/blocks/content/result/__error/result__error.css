@@ -1,0 +1,25 @@
+@import url('./__image/error__image.css');
+@import url('./__message/error__message.css');
+
+
+.result__error {
+    display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: #f5f6f7;
+	padding: 78px 104px 72px;
+}
+
+@media screen and (max-width: 520px) 
+{
+	.result__error {
+		padding: 40px;
+	}
+}
+
+@media screen and (max-width: 368px) 
+{
+	.result__error {
+		padding: 16px;
+	}
+}

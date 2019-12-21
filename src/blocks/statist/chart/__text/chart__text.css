@@ -1,0 +1,18 @@
+@import url('./_column-first/chart__text_column-first.css');
+
+.plane-text.chart__text {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-top: 47px;
+    margin-bottom: 13px;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .plane-text.chart__text {
+        margin-top: 16px;
+        margin-bottom: 7px;
+    }
+}

@@ -1,0 +1,7 @@
+@import url('./__text/y-axes__text.css');
+
+.chart__y-axes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

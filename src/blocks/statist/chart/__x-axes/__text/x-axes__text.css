@@ -1,0 +1,10 @@
+@import url('./_align_start/x-axes__text_align_start.css');
+@import url('./_align_end/x-axes__text_align_end.css');
+
+.x-axes__text {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    width: 80px;
+    margin-top: 14px;
+}

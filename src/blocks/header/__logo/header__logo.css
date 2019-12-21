@@ -1,0 +1,30 @@
+@import url('./_black/header__logo_black.css');
+
+.header__logo {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    position: relative;
+    left: 104px;
+    top: 30px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .header__logo {
+        top: 22px;
+        left: 40px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .header__logo {
+        font-size: 16px;
+        line-height: 24px;
+        left: 16px;
+        top: 16px;
+    }
+}

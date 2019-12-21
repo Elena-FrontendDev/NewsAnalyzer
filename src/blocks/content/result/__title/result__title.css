@@ -1,0 +1,7 @@
+@media screen and (max-width: 568px) 
+{
+    .result__title {
+        margin-bottom: 16.26px;
+        margin-top: 0;
+    }
+}

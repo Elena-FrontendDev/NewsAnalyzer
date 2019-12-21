@@ -1,0 +1,26 @@
+.author__image {
+    position: relative;
+    width: 37.7%;
+    height: 37.7%;
+    border-radius: 1000px;
+    margin-right: 56px;
+}
+
+@media screen and (max-width: 1280px) 
+{
+    .author__image {
+        width: 33.7%;
+        height: 33.7%;
+        margin-right: 32px;
+        margin-top: 21px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .author__image {
+        width: 94.5%;
+        height: 94.5%;
+        padding: 0 8px;
+    }
+}

@@ -1,0 +1,19 @@
+.chart__grid {
+    display: grid;
+    grid-template-columns: 8.44% 91.56%;
+}
+
+@media screen and (max-width: 868px) 
+{
+    .chart__grid {
+        grid-template-columns: 17% 83%;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .chart__grid {
+        grid-template-columns: 28% 72%;
+        margin-top: 17px;
+    }
+}

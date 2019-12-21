@@ -1,0 +1,21 @@
+@import url('./_with-background/carousel__commit_with-background.css');
+
+.carousel__commit {
+    margin: 0 24px auto 24px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .carousel__commit {
+        margin: 0 16px auto 24px;
+    }
+}
+
+@media screen and (max-width: 568px) 
+{
+    .carousel__commit {
+        margin: 0 16px 16px;
+    }
+}

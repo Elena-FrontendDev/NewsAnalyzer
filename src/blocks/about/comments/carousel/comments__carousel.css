@@ -1,0 +1,43 @@
+@import url('./flickity.css');
+@import url('./__cell/carousel__cell.css');
+@import url('./__avatar/carousel__avatar.css');
+@import url('./__data/carousel__data.css');
+@import url('./__info/carousel__info.css');
+@import url('./__person/carousel__person.css');
+@import url('./__email/carousel__email.css');
+@import url('./__commit/carousel__commit.css');
+@import url('./__subtitle/carousel__subtitle.css');
+
+
+
+.comments__carousel {
+   margin: 0 auto 80px;
+  
+}
+
+@media screen and (max-width: 1024px)
+{
+   .comments__carousel {
+      margin: 0 auto 32px 40px;
+   }
+}
+
+@media screen and (max-width: 568px)
+{
+   .comments__carousel {
+      margin: 16px;
+   }
+}
+
+/* enable Flickity default settings */
+.comments__carousel:after {
+   content: 'flickity';
+   display: none; /* hide :after */
+ }
+
+@media screen and ( max-width: 768 ) {
+   /* enable Flickity small settings */
+   .comments__carousel:after {
+     content: 'flickity.small';
+   }
+ }

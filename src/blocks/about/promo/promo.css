@@ -1,0 +1,24 @@
+@import url('./__title/promo__title.css');
+@import url('./__paragraph/promo__paragraph.css');
+
+.promo {
+    max-width: 815px;
+    margin-top: 80px;
+    padding-left: 104px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .promo {
+        margin: 30px 40px 40px 40px;
+        padding-left: 0;
+        max-width: 688px;
+    }
+}
+
+@media screen and (max-width: 568px) 
+{
+    .promo {
+        margin: 18px 16px 16px;
+    }
+}

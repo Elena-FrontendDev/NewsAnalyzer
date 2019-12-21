@@ -1,0 +1,31 @@
+@import url('./__info/comments__info.css');
+@import url('./__title/comments__title.css');
+@import url('./__link/comments__link.css');
+@import url('./carousel/comments__carousel.css');
+@import url('./__button/comments__button.css');
+
+.comments {
+    background-color: #F5F6F7;
+    height: 606px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .comments {
+        height: 515px;
+    }
+}
+
+@media screen and (max-width: 812px) 
+{
+    .comments {
+        height: 462px;
+    }
+}
+
+@media screen and (max-width: 620px) 
+{
+    .comments {
+        height: 568px;
+    }
+}
