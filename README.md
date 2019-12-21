@@ -1,7 +1,7 @@
 # *NewsAnalyzer*
 ### *Дипломный проект "Анализатор новостей"* 
 
-[v 0.0.0] https://elena-frontenddev.github.io/NewsAnalyzer/about.html
+[v 0.0.0] https://elena-frontenddev.github.io/NewsAnalyzer/
 
 
 #### Цель:  
@@ -24,4 +24,4 @@
 
 **npm run build**  - сборка для финальной версии продукта.  
 **npm run dev**  - сборка для разработки. Открывает проект на локальном сервере — по адресу http://localhost:8080/   
-**npm run deploy**  - сборка для выкладывания сайта на сервер. Вебпак копирует собранный проект из папки dist в ветку gh-pages  репозитория. После этого можно посмотреть проект по адресу https://elena-frontenddev.github.io/NewsAnalyzer/about.html
+**npm run deploy**  - сборка для выкладывания сайта на сервер. Вебпак копирует собранный проект из папки dist в ветку gh-pages  репозитория. После этого можно посмотреть проект по адресу https://elena-frontenddev.github.io/NewsAnalyzer/
