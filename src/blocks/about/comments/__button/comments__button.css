@@ -4,15 +4,13 @@
     display: none;
 }
 
-.comments__button:hover {
-    color: #2F71E5;
-    cursor: pointer;
-}
 
 @media screen and (max-width: 620px) 
 {
     .comments__button {
-        display: block;
+        display: flex;
+        justify-content: center;
+        text-align: center;
         width: 288px;
         height: 56px;
         border: 1px solid #1a1b22;
