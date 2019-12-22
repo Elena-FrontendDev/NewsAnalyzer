@@ -228,7 +228,6 @@ function createResultList(urlToImageValue, publishedAtValue, titleValue, descrip
 
 
 function showResultCards() {
-    searchButton.setAttribute('disabled', true)
     if ((resultCards.length - cardsStart) <= 3) {
         
         for (let index = cardsStart; index < resultCards.length; index++) {
@@ -279,14 +278,12 @@ function showPreloader() {
 
 function showresultError() {
     
-    searchButton.setAttribute('disabled', true)
     const resultError = document.createElement("div");
     resultError.classList.add("result__error");
     resultError.innerHTML = `<div class="error__image"></div>
                             <h4 class="content__subtitle">Ничего не найдено</h4>
                             <h6 class="plane-text plane-text_color_gray error__message">К сожалению по вашему запросу ничего не найдено.</h6>`;
     
-    //resultList.appendChild(resultError);
     resultList.insertBefore(resultError, resultCardsList);
 }
 
@@ -297,3 +294,4 @@ showPreloader();
 showresultError()
 showResultList();
 showResultCards();
+
