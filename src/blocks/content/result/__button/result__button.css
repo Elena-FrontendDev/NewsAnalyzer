@@ -1,0 +1,25 @@
+@import url('./result__button-content.css');
+@import url('./__text/button__text.css');
+
+.result__button {
+    width: 288px;
+    height: 64px;
+    background: #fff;
+    border-radius: 80px;
+    display: flex;
+}
+
+@media screen and (max-width: 812px) 
+{
+    .result__button {
+        width: 240px;
+        height: 56px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .result__button {
+        width: 100%
+    }
+}

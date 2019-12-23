@@ -1,0 +1,23 @@
+@import url('./__description/chart-info__description.css');
+@import url('./__title/chart-info__title.css');
+@import url('./__subtitle/chart-info__subtitle.css');
+@import url('./__result/chart-info__result.css');
+
+.chart-info {
+    margin: 0 104px 80px;
+}
+
+
+@media screen and (max-width: 868px) 
+{
+    .chart-info {
+        margin: 0px 40px 40px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .chart-info {
+        margin: 16px 16px 22px 16px;
+    }
+}

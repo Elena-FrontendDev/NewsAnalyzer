@@ -1,0 +1,38 @@
+.search__subtitle {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+    max-width: 580px;
+    margin: 32px auto;
+    padding-right: 30px;
+}
+
+@media screen and (max-width: 812px) 
+{
+    .search__subtitle {
+        max-width: 452px;
+        margin-left: 160px;
+        margin: 16px auto 24px 160px;
+    }
+}
+
+@media screen and (max-width: 570px) 
+{
+    .search__subtitle {
+        margin-left: 140px;
+    }
+}
+
+@media screen and (max-width: 540px) 
+{
+    .search__subtitle {
+        margin: 16px 16px 64px 16px;
+        max-width: 288px;
+        padding-right: 0;
+        letter-spacing: 1.1px;
+        line-height: 26px;
+    }
+}

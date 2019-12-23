@@ -1,0 +1,30 @@
+.result__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85.55%;
+    margin: 50px auto 0;
+}
+
+@media screen and (max-width: 1280px) 
+{
+    .result__info {
+        width: 89.58%;
+    }
+}
+
+@media screen and (max-width: 812px) 
+{
+    .result__info {
+        margin-top: 16px;
+    }
+}
+
+@media screen and (max-width: 568px) 
+{
+    .result__info {
+        width: 90%;
+        flex-direction: column;
+        margin-top: 32px;
+    }
+}

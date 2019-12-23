@@ -1,0 +1,11 @@
+.chart__text_column-first {
+    width: 80px;
+    margin-right: 24px;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .chart__text_column-first {
+        margin-right: 0px;
+    }
+}

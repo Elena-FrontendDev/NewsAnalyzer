@@ -1,0 +1,20 @@
+.plane-text.footer__author {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 1024px)
+{
+    .plane-text.footer__author {
+        margin-top: 23px;
+    }
+}
+
+@media screen and (max-width: 667px)
+{
+    .plane-text.footer__author {
+        grid-row-end: 3;
+        margin-top: 38px;
+    }
+}

@@ -1,0 +1,23 @@
+@import url('./__link/button__link.css');
+
+.comments__button {
+    display: none;
+}
+
+
+@media screen and (max-width: 620px) 
+{
+    .comments__button {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 288px;
+        height: 56px;
+        border: 1px solid #1a1b22;
+        box-sizing: border-box;
+        border-radius: 80px;
+        margin: 48px auto 32px;
+        background-color: #F5F6F7;
+        font-family: 'Roboto Slab';
+    }
+} 

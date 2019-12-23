@@ -1,0 +1,27 @@
+.card__image {
+    width: 100%;
+    min-height: 272px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 812px) 
+{
+    .card__image {
+        min-height: 35.88%;
+    }
+}
+
+@media screen and (max-width: 667px) 
+{
+    .card__image {
+        min-height: 47%;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .card__image {
+        min-height: 43.95%;
+    }
+}

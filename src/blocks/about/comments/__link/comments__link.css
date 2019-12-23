@@ -1,0 +1,25 @@
+.comments__link {
+    margin-right: 123px;
+    margin-top: 44px;
+    text-decoration: none;
+}
+
+.comments__link:hover {
+    color: #2F71E5;
+}
+
+@media screen and (max-width: 1024px)
+{
+    .comments__link {
+        margin-right: 12px;
+        margin-top: 48px;
+        letter-spacing: 0.3px;
+    }
+}
+
+@media screen and (max-width: 620px)
+{
+    .comments__link {
+        display: none;
+    }
+}

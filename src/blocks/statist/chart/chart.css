@@ -1,0 +1,26 @@
+@import url('./__data-name/chart__data-name.css');
+@import url('./__text/chart__text.css');
+@import url('./__title/chart__title.css');
+@import url('./__x-axes/chart__x-axes.css');
+@import url('./__y-axes/chart__y-axes.css');
+@import url('./__grid/chart__grid.css');
+@import url('./__item/chart__item.css');
+
+.chart {
+    background: #F5F6F7;
+    padding: 80px 104px 73px;
+}
+
+@media screen and (max-width: 868px)  
+{
+    .chart {
+        padding: 40px 40px 32px 40px;
+    }
+}
+
+@media screen and (max-width: 414px)  
+{
+    .chart {
+        padding: 25px 16px 38px 16px;
+    }
+}

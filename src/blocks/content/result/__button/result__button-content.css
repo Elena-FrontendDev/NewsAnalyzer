@@ -1,0 +1,25 @@
+.result__button-content {
+    margin: 64px auto 0;
+}
+
+@media screen and (max-width: 812px)
+{
+    .result__button-content {
+        margin: 32px 256px 0 272px;
+    }
+}
+
+@media screen and (max-width: 667px)
+{
+    .result__button-content {
+        margin: 32px auto;
+    }
+}
+
+@media screen and (max-width: 414px)
+{
+    .result__button-content {
+        width: 288px;
+        margin: 12px auto;
+    }
+}

@@ -1,0 +1,17 @@
+.promo__title {
+    margin-bottom: 24px;
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .promo__title {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 568px) 
+{
+    .promo__title {
+        margin-top: 20px;
+    }
+}

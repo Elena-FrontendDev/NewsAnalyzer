@@ -1,0 +1,11 @@
+.author__paragraph {
+    margin-bottom: 24px;
+}
+
+@media screen and (max-width: 768px) 
+{
+    .author__paragraph {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

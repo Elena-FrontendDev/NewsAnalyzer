@@ -1,0 +1,23 @@
+@import url('../_black/link__item_black.css');
+
+.link__item {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #B6BCBF;
+    margin-right: 34px;
+}
+
+.link__item:hover {
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .link__item {
+        font-size: 16px;
+        margin-right: 12px;
+    }
+}

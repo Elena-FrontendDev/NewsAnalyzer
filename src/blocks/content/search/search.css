@@ -1,0 +1,43 @@
+@import url('./__image/search__image.css');
+@import url('./__title/search__title.css');
+@import url('./__subtitle/search__subtitle.css');
+@import url('./__form/search__form.css');
+@import url('./__input/search__input.css');
+@import url('./__button/search__button.css');
+
+
+.search {
+  background-image: url('./__image/background_georgia.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: auto;
+  height: 576px;
+  margin-top: -80px;
+}
+
+@media screen and (max-width: 812px) 
+{
+  .search {
+      background-image: url('./__image/background_georgia_Ipad.png');
+      height: 400px;
+      margin-top: -65px;
+    }
+}
+
+@media screen and (max-width: 667px) 
+{
+  .search {
+      height: 535px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+  .search {
+      background-image: url('./__image/background_georgia_Iphone.png');
+      height: 535px;
+      margin-top: -56px;
+    }
+}

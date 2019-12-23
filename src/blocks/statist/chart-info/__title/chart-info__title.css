@@ -1,0 +1,26 @@
+.chart-info__title {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 868px) 
+{
+    .chart-info__title {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 565px) 
+{
+    .chart-info__title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 414px) 
+{
+    .chart-info__title {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+}

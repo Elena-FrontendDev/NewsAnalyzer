@@ -1,0 +1,37 @@
+.carousel__cell {
+ 
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    margin: 30px 16px 0 0;
+    width: 400px;
+    height: 288px;
+    
+    counter-increment: carousel__cell; 
+}
+
+@media screen and (max-width: 1024px)
+{
+    .carousel__cell {
+        width: 336px;
+        height: 242px;
+        margin-right: 8px;
+    }
+}
+
+@media screen and (max-width: 667px)
+{
+    .carousel__cell {
+        width: 73%;
+    }
+}
+
+@media screen and (max-width: 320px)
+{
+    .carousel__cell {
+        height: 264px;
+        width: 288px;
+        margin: 2px 0 0;
+    }
+}
+
+

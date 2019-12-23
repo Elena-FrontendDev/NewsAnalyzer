@@ -1,0 +1,17 @@
+.chart-info__description {
+    margin-top: 80px;
+}
+
+@media screen and (max-width: 868px)  
+{
+    .chart-info__description {
+        margin-top: 64px;
+    }
+}
+
+@media screen and (max-width: 414px)  
+{
+    .chart-info__description {
+        margin-top: 16px;
+    }
+}

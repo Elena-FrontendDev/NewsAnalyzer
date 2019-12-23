@@ -1,0 +1,11 @@
+.plane-text.card__data {
+    color: #B6BCBF;
+    margin: 0 0 12px 0;
+}
+
+@media screen and (max-width: 414px) 
+{
+    .plane-text.card__data {
+        margin-bottom: 18px;
+    }
+}
