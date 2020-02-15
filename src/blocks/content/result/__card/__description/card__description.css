@@ -2,15 +2,10 @@
     font-size: 16px;
     line-height: 22px;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-@media screen and (max-width: 1435px) 
-{.plane-text.card__description {
-    -webkit-line-clamp: 4;
-}}
 
 @media screen and (max-width: 812px) 
 {.plane-text.card__description {

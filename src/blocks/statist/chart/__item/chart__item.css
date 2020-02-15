@@ -1,5 +1,6 @@
 .chart__item {
     height: 24px;
+    max-width: 100%;
     background-color: #2f71e5;
     margin-top: 56px;
     color: #fff;

@@ -7,6 +7,8 @@
 @import url('../blocks/content/author/author.css');
 @import url('../blocks/plane-text/plane-text.css');
 @import url('../blocks/footer/footer.css');
+@import url('../blocks/content/result/__preloader/result__preloader.css');
+@import url('../blocks/content/result/__error/result__error.css');
 
 
 @import url('../blocks/about/promo/promo.css');
