@@ -3,7 +3,6 @@ const commitSlider = document.querySelector('.comments__carousel')
 
 export function showPreloader(isLoading) {
 
-
     if(isLoading) {
         const preloader = document.createElement("div");
     preloader.classList.add("result__preloader");
@@ -20,17 +19,16 @@ export function showPreloader(isLoading) {
 
   export function commitPreloader(isLoading) {
 
-
     if(isLoading) {
         const preloader = document.createElement("div");
         preloader.classList.add("result__preloader");
         preloader.innerHTML = `<i class="preloader__circle"></i>
                                 <h6 class="plane-text plane-text_color_gray preloader__text">Loading...</h6>`;
-        commitSlider.appendChild(preloader);
 
           preloader.classList.add('result__preloader_open');
+          commitSlider.appendChild(preloader);
     }
     else {
-    commitSlider.removeChild(document.querySelector(".result__preloader"));
+      commitSlider.removeChild(document.querySelector(".result__preloader"));
     }
   }

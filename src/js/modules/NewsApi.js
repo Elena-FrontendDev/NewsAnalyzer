@@ -1,5 +1,4 @@
-import {showPreloader} from '../utils/preloader'
-import {showMainError} from '../utils/error'
+//Класс для запроса к newsApi
 
 export default class NewsApi {
   constructor(options) {
@@ -11,7 +10,6 @@ export default class NewsApi {
 
   
   getNews(request) {
-    showPreloader(true);
       return fetch(`${this.url}q=${request}&from=${this.from}&to=${this.to}&language=ru&pageSize=100&apiKey=${this.apiKey}`, 
       {
         headers: {authorization: this.apiKey}
@@ -21,16 +19,8 @@ export default class NewsApi {
           if (res.ok) {
           return res.json();
           }
-          showMainError();
           return Promise.reject(`Ошибка: ${res.status}`);
       })
-      .catch((err)=> {
-          console.log(`Ошибка: ${err}`);
-          showMainError();
-      }) 
-      .finally(() => {
-        showPreloader(false)
-      })
-  }; 
+  }
 
 } 

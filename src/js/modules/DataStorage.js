@@ -1,3 +1,5 @@
+//Класс для сохранения и получения данных localStorage
+
 export default class DataStorage {
     constructor() {
     }
@@ -5,13 +7,13 @@ export default class DataStorage {
     setSearchRequest(request) {
         localStorage.setItem('searchRequest', request)
     }
-    setAnswerArray(data) {
+    setCardsArray(data) {
         localStorage.setItem('data.articles', JSON.stringify(data.articles))
     }
     getSearchRequest() {
        return localStorage.getItem('searchRequest');
     }
-    getAnswerArray() {
+    getCardsArray() {
        return JSON.parse(localStorage.getItem('data.articles'));
     }
 }

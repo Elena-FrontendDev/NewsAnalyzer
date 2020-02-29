@@ -5,14 +5,18 @@ import DateTransform from './js/utils/DateTransform';
 import DataStorage from './js/modules/DataStorage';
 
 const dataStorage = new DataStorage();
-const resultArray = dataStorage.getAnswerArray();
-const request = dataStorage.getSearchRequest()
+const cardsArray = dataStorage.getCardsArray();
+const searchRequest = dataStorage.getSearchRequest();
 
 const dateTransform = new DateTransform();
-const statistics = new Statistics(resultArray, request);
+const weekArray = dateTransform.getWeekArray();
+const datesForChart = dateTransform.makeWeekFormatForChart();
+const month = dateTransform.getMonth();
+
+const statistics = new Statistics(cardsArray, searchRequest, weekArray, datesForChart, month);
 
 window.onload = function() {
-     dateTransform.getTodayDate();
      statistics.setRequest();
-     statistics.makeWeekArray();
+     statistics.makeYaxisForChart();
+     statistics.checkHeaders();
     }

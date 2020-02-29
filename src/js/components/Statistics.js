@@ -1,147 +1,109 @@
-//класс для вывода графика статистики (создан через боль, прошу понять и простить, буду рефакторить в будущем)
+//Класс для вывода графика статистики
 
 export default class Statistics {
-    constructor(arr, request) {
-        this.arr = arr  //массив из localStorage
-        this.request = request //запрос пользователя из localStorage
+    constructor(cardsArray, searchRequest, weekArray, datesForChart, month) {
+        this.cardsArray = cardsArray;             //массив статей из localStorage
+        this.searchRequest = searchRequest;       //запрос пользователя из localStorage
+        this.weekArray = weekArray;               //массив дат из 7ми дней от сегодняшнего числа
+        this.datesForChart = datesForChart;       //массив дат в формате (13,пт) для графика
+        this.month = month;                       //название текущего месяца для заголовка таблицы
     }
 
-    //запись запроса пользователя в блок страницы 
+    //записываем запроса пользователя в блок страницы 
     setRequest() {
-        const request = this.request.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-        document.querySelector('.chart-info__title').textContent = 'Вы спросили: «'+ request +'»';
-        const weekInfo = this.arr.length;
-        document.querySelector('.week__info').textContent = weekInfo; 
+        document.querySelector('.chart-info__title').textContent = 'Вы спросили: «'+ this.searchRequest +'»';
+        document.querySelector('.week__info').textContent = this.cardsArray.length;
     } 
 
-//получим массив 7-ми дней недели от сегодняшней даты для последующей проверки массива статей
-getDateArr() {
-  const dateBefore = new Date();
-    const dateNow = new Date();
-   
-    const weekArray = [dateNow.toLocaleDateString('ru')]
-   for (let index = 0; index < 6; index++) { 
-    let daysfore = dateBefore.setDate(dateBefore.getDate() - 1);
-    let daysBefore = new Date(daysfore);       
-    weekArray.push(daysBefore.toLocaleDateString('ru'));
-}
+    //считаем количество совпадений запроса пользователя в заголовках и описаниях в массиве статей
+    checkHeaders() {
 
-this.checkHeaders(weekArray)
-return weekArray; 
-}
+      //создаем начальный массив с датами за 7 дней и ставим кол-во повторений 0
+       const weekArray = this.weekArray.sort().map(date => {
+        return [date, 0]
+      }) 
 
-//проверим массив статей и сделаем массив с совпадениями запроса по заголовкам и описанию к статьям 
-checkHeaders(weekArray) {
-  let count = 0
-  let arrForChart = []
-  this.arr.forEach(element => {
-    //проверка, есть ли заголовок у статьи, если null была ошибка без проверки
-    if (element.title) {
-      const title = element.title.toLowerCase()
-      if (title.includes(this.request)) {
-         count++
-         let date = new Date(element.publishedAt)
-         arrForChart.push(date.toLocaleDateString('ru'))
-   
-         document.querySelector('.title__info').textContent = count;
-         return arrForChart 
-        }
-      }    
-     })
-     //проверим описание статей на совпадение с запросом пользователя
-     this.arr.forEach(element => {
+      let countTitles = 0    //отдельно считаем упоминания в заголовках к статьям, чтобы записать в блок 'Вы спросили'
 
-      const description = element.description.toLowerCase()
-   
-   if (description.includes(this.request)) {
-
-    count++
-    let date = new Date(element.publishedAt)
-    arrForChart.push(date.toLocaleDateString('ru'))
-    return arrForChart 
-   }
-
-   })   
-     this.makeArrForChart(arrForChart, weekArray)   //передадим массив из 7-ми дней и массив с совпадениями по дате для отрисовки графика        
-} 
-
-//сделаем из двух массивов один и далее перебором найдем количество совпадений для каждого дня 
-makeArrForChart(arrForChart, weekArray) {
- const  dowbleArray = arrForChart.concat(weekArray).sort()
- let row = [];
- // console.log(dowbleArray)
- 
-  for (let index = 0; index < dowbleArray.length; index++) {
-    const count = row[dowbleArray[index]];
-    if (count) {
-      row[dowbleArray[index]] = count+1;
-    } else {
-      row[dowbleArray[index]] = 1;
-    }
-
-  }
-  const rowGraph = Object.values(row)
-  let newArrayForGraph = []
-  rowGraph.forEach(element => {
-    let d = element-1
-    newArrayForGraph.push(d)
-
-  });
- // console.log(newArrayForGraph) // это последние данные для отрисовки рядов графика!
-  
-//рисуем ряды графика - по количеству совпадений создаем блок с заливкой и записываем число в этот блок
-for (let index = 0; index < newArrayForGraph.length; index++) {
-  let element = newArrayForGraph[index];
-  const dateRow = document.createElement('div');
-
-  dateRow.textContent = element
-  
-  document.querySelector('.chart__bar').appendChild(dateRow)
-  dateRow.style.width = element +'%'
-  dateRow.classList.add("chart__item");
-}
-document.querySelector('.chart__item').classList.add('y-axes__text')
-document.querySelector('.chart__item').classList.add('y-axes__text_row_first')
-
-}
-
-//создаем массив для заполнения оси Y графика и выводим в заголовок графика месяц
-    makeWeekArray() {
-      const dateBefore = new Date();
-        const dateNow = new Date();
-        let weekDays = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
-        const arrChart = [dateNow.getDate() + ', ' + weekDays[dateNow.getDay()]]
-       for (let index = 0; index < 6; index++) { 
-        let daysfore = dateBefore.setDate(dateBefore.getDate() - 1);
-        let daysBefore = new Date(daysfore);
+      //цикл для отбора массива статей с датами, соответствующими текущей недели, 
+      //тк если произошла смена дат, в localstorage остается массив со старыми датами, которые нужно откинуть для отображения графика 
+      for (let index = 0; index < this.weekArray.length; index++) {
         
-        arrChart.push(daysBefore.getDate() + ', ' + weekDays[daysBefore.getDay()]);
-
-    }
-    let month = (dateNow.toLocaleString('ru', {month:'long'}).toUpperCase())
-    document.querySelector('.chart__text_column-first').textContent = 'ДАТА ' + '(' + month + ')';
-
-   arrChart.reverse()
-   this.makeDateColumn(arrChart);
-
-   this.getDateArr()
-    return arrChart; 
-    }
-
-    //заполняем ось Y числом и днем недели (13, пт)
-    makeDateColumn (arrChart) {
-      for (let index = 0; index < arrChart.length; index++) {
-        let element = arrChart[index];
-        const dateColumn = document.createElement('h6');
+        const currentWeek = this.weekArray[index];
+        const cardsFiltered = this.cardsArray.filter(card => {
+          return new Date(card.publishedAt).toLocaleDateString('ru') === currentWeek
+        })
         
-       dateColumn.textContent = element
-       
-       document.querySelector('.chart__y-axes').appendChild(dateColumn)
-       dateColumn.classList.add("y-axes__text");
-       dateColumn.classList.add("plane-text");
+     //переберем массив статей на все совпадения и добавим к массиву с датами в значении [дата, кол-во упоминаний]
+      cardsFiltered.forEach(element => {
+        const regExp = new RegExp(this.searchRequest, 'gi'); 
+        
+        if (element.title) {
+              if (element.title.match(regExp)) {
+                  const repeatsTitles = element.title.match(regExp).length
+                  const date = new Date(element.publishedAt).toLocaleDateString('ru')
+                  weekArray.push([date, repeatsTitles]);
+                  countTitles ++;
+                  document.querySelector('.title__info').textContent = countTitles;
+                }
+          }    
+        if (element.description) {
+              if (element.description.match(regExp)) {
+                const repeatsDescription = element.description.match(regExp).length
+                const date = new Date(element.publishedAt).toLocaleDateString('ru')
+                weekArray.push([date, repeatsDescription]);
+                }
+            }
+            
+        }) 
       }
+      //собираем из массива с датами и кол-вом упоминаний массив отфильтрованный по датам
+      const countRepeatsForRows = weekArray.reduce(function (prevVal, item) {
+        if (!prevVal[item[0]]) {
+          prevVal[item[0]] = item[1];    
+        } else {         
+          prevVal[item[0]] = prevVal[item[0]] + item[1];      
+        }     
+        return prevVal;
+      }, []); 
+
+    //итоговый массив с датами и количеством упоминаний передаем в метод создания графика
+    this.makeRowsForChart(countRepeatsForRows)
+    } 
+
+    //заполненяем ряды графика - по количеству совпадений создаем блок с заливкой и записываем число в этот блок
+    makeRowsForChart(countRepeatsForRows) {
+
+    Object.keys(countRepeatsForRows).forEach(function (repeats) {
+      const rowValue = countRepeatsForRows[repeats];
+      const chartRow = document.createElement('div');
+
+      chartRow.textContent = rowValue
+      
+      document.querySelector('.chart__bar').appendChild(chartRow)
+      chartRow.style.width = rowValue +'%'
+      chartRow.classList.add("chart__item");
+    });
+
+    document.querySelector('.chart__item').classList.add('y-axes__text')
+    document.querySelector('.chart__item').classList.add('y-axes__text_row_first')
+
+    }
+
+    //выводим день недели в столбец по оси Y и заполняем название месяца в заголовке графика
+    makeYaxisForChart() {
+     document.querySelector('.chart__text_column-first').textContent = 'ДАТА ' + '(' + this.month + ')';
+
+    for (let index = 0; index < this.datesForChart.length; index++) {
+      const chartColumn = document.createElement('h6'); 
+      chartColumn.textContent = this.datesForChart[index];
+      
+      document.querySelector('.chart__y-axes').appendChild(chartColumn)
+      chartColumn.classList.add("y-axes__text");
+      chartColumn.classList.add("plane-text");
+    }
       document.querySelector('.y-axes__text').classList.add('y-axes__text_row_first')
-        }
+    }
 
 }
 

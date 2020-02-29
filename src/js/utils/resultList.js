@@ -4,7 +4,7 @@ import {buttonMoreInner} from '../constants/constants';
 const resultList = document.querySelector('.result');
 const resultCardsList = document.querySelector('.result__cards');
 
-// функция для создания блока результатов поиска по кнопке submit
+//функция для создания блока результатов поиска по кнопке submit
 export function showResultList() {
     resultList.classList.add("result-is-opened");
     const resultInfo = document.createElement("div");
@@ -24,7 +24,6 @@ export function showResultList() {
 //функция для удаления информации из блока результатов по поиску предыдущего запроса, если пользователь ввел новый запрос
 export function resetAnswer () {
     if (document.querySelector('.result__cards-is-opened')) {
-        console.log('открыт')
         resultList.innerHTML = '';
         resultList.classList.remove('result-is-opened')
         resultCardsList.innerHTML = '';
@@ -35,18 +34,19 @@ export function resetAnswer () {
   }
   }
 
-  //функция для создания блока ошибки, если по запросу ничего не найдено
-  export function showEmptyResultError() {
+//функция для создания блока ошибки, если по запросу ничего не найдено
+export function showEmptyResultError() {
+    searchButton.setAttribute('disabled', true)
     const resultError = document.createElement("div");
             resultError.classList.add("result__error");
             resultError.innerHTML = `<div class="error__image"></div>
                                     <h4 class="content__subtitle">Ничего не найдено</h4>
                                     <h6 class="plane-text plane-text_color_gray error__message">К сожалению по вашему запросу ничего не найдено.</h6>`;
             resultList.appendChild(resultError);
-  }
+}
 
-  //функция загрузки карточек по запросу пользователя в зависимости от результатов длинны массива статей
-export function openCards (resultArray, api, cardsStart) {
+//функция загрузки карточек по запросу пользователя в зависимости от результатов длинны массива статей
+export function openCards (resultArray, cardsStart) {
   searchButton.setAttribute('disabled', true)
 
   if ((resultArray.length - cardsStart) <= 3) {   
@@ -69,7 +69,7 @@ export function openCards (resultArray, api, cardsStart) {
 
       buttonMore.addEventListener('click', function() {
       document.querySelector('.result').removeChild(buttonMore);
-      openCards(resultArray, api, cardsStart = cardsStart + 3);
+      openCards(resultArray, cardsStart = cardsStart + 3);
   })
 } 
 }
