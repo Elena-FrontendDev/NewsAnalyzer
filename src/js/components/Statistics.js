@@ -26,10 +26,10 @@ export default class Statistics {
       let countTitles = 0    //отдельно считаем упоминания в заголовках к статьям, чтобы записать в блок 'Вы спросили'
 
       //цикл для отбора массива статей с датами, соответствующими текущей недели, 
-      //тк если произошла смена дат, в localstorage остается массив со старыми датами, которые нужно откинуть для отображения графика 
-      for (let index = 0; index < this.weekArray.length; index++) {
-        
-        const currentWeek = this.weekArray[index];
+      //тк если произошла смена дат, в localstorage остается массив со старыми датами, которые нужно откинуть для отображения графика        
+      this.weekArray.forEach(element => {
+        const currentWeek = element;
+
         const cardsFiltered = this.cardsArray.filter(card => {
           return new Date(card.publishedAt).toLocaleDateString('ru') === currentWeek
         })
@@ -56,7 +56,8 @@ export default class Statistics {
             }
             
         }) 
-      }
+      })
+
       //собираем из массива с датами и кол-вом упоминаний массив отфильтрованный по датам
       const countRepeatsForRows = weekArray.reduce(function (prevVal, item) {
         if (!prevVal[item[0]]) {
@@ -68,11 +69,11 @@ export default class Statistics {
       }, []); 
 
     //итоговый массив с датами и количеством упоминаний передаем в метод создания графика
-    this.makeRowsForChart(countRepeatsForRows)
+    this._makeRowsForChart(countRepeatsForRows)
     } 
 
     //заполненяем ряды графика - по количеству совпадений создаем блок с заливкой и записываем число в этот блок
-    makeRowsForChart(countRepeatsForRows) {
+    _makeRowsForChart(countRepeatsForRows) {
 
     Object.keys(countRepeatsForRows).forEach(function (repeats) {
       const rowValue = countRepeatsForRows[repeats];
@@ -94,14 +95,15 @@ export default class Statistics {
     makeYaxisForChart() {
      document.querySelector('.chart__text_column-first').textContent = 'ДАТА ' + '(' + this.month + ')';
 
-    for (let index = 0; index < this.datesForChart.length; index++) {
-      const chartColumn = document.createElement('h6'); 
-      chartColumn.textContent = this.datesForChart[index];
+      this.datesForChart.forEach(element => {
       
-      document.querySelector('.chart__y-axes').appendChild(chartColumn)
-      chartColumn.classList.add("y-axes__text");
-      chartColumn.classList.add("plane-text");
-    }
+        const chartColumn = document.createElement('h6'); 
+        chartColumn.textContent = element;
+        
+        document.querySelector('.chart__y-axes').appendChild(chartColumn)
+        chartColumn.classList.add("y-axes__text");
+        chartColumn.classList.add("plane-text");
+      })
       document.querySelector('.y-axes__text').classList.add('y-axes__text_row_first')
     }
 

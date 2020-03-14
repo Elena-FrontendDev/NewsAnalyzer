@@ -1,24 +1,26 @@
 //класс для создания контейнера коммитов 
 
 export default class CommitCardList {
-    constructor(commitCard) {
+    constructor(commitCard, commitsContainer) {
       this.commitCard = commitCard;
+      this.commitsContainer = commitsContainer;
     }
 
-     addCommit(nameValue, emailValue, dateValue, messageValue, avatarValue) {
-        this.commitCard.createCommit(nameValue, emailValue, dateValue, messageValue, avatarValue)
+    _addCommit(nameValue, emailValue, dateValue, messageValue, avatarValue) {
+      const commitElement = this.commitCard.createCommit(nameValue, emailValue, dateValue, messageValue, avatarValue);
+      
+      this.commitsContainer.appendChild(commitElement);
+    }
 
-  }
-    create(arr) {
-           for (let index = 0; index < arr.length; index++) {
-               const element = arr[index];
-               if (element.author) {
-                this.addCommit(element.commit.committer.name, element.commit.committer.email, element.commit.committer.date, element.commit.message, element.author.avatar_url)
-               }
-               else {  
-               this.addCommit(element.commit.committer.name, element.commit.committer.email, element.commit.committer.date, element.commit.message, './images/gh_icon.svg')}
-           }
-          
-        }
+    create(commitsCardsArray) {
+      commitsCardsArray.forEach(element => 
+          {if (element.author) 
+            {this._addCommit(element.commit.committer.name, element.commit.committer.email, element.commit.committer.date, element.commit.message, element.author.avatar_url)
+          } 
+          else {  
+            this._addCommit(element.commit.committer.name, element.commit.committer.email, element.commit.committer.date, element.commit.message, './images/gh_icon.svg')}
+          }
+      );     
+    }
          
 } 

@@ -13,6 +13,8 @@ import '../src/images/not-found_v1.png'
 
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
+    searchInput.setAttribute('disabled', true);
+    searchButton.setAttribute('disabled', true);
     resetAnswer(); 
     const request = searchInput.value;
     renderRequest (newsApi, request);
@@ -23,7 +25,6 @@ import '../src/images/not-found_v1.png'
 //если есть статьи - выведем блок с карточками, если нет - выведем блок 'ничего не найдено'
 
 function renderRequest (api, request) {
-  searchButton.setAttribute('disabled', true)
     showPreloader(true);
     api.getNews(request)
     .then ((res) => { 
@@ -45,7 +46,9 @@ function renderRequest (api, request) {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
-      showPreloader(false)
+      showPreloader(false);                             //убираем прелоудер
+      searchInput.removeAttribute('disabled', true);    //снимаем блокировку с поля ввода
+      searchButton.removeAttribute('disabled', true);   //убираем блокировку кнопки submit
     })
 };
 
@@ -54,7 +57,7 @@ function renderRequest (api, request) {
 
 searchInput.addEventListener('input', function () {
   event.preventDefault();
-  searchButton.removeAttribute('disabled', true)
+  //searchButton.removeAttribute('disabled', true)
 });
 
 

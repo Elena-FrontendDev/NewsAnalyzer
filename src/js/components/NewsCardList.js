@@ -1,17 +1,18 @@
 //класс для создания контейнера карточек для всего массива статей, полученного от Api
 
   export default class NewsCardList {
-    constructor(newsCard) {
-      this.cards = []
+    constructor(newsCard, container) {
       this.newsCard = newsCard;
+      this.container = container
     }
 
-     addCard(urlToImageValue, publishedAtValue, titleValue, descriptionValue, sourceValue, linkValue) {
-      const  {cardElement}  = this.newsCard.createCard(urlToImageValue, publishedAtValue, titleValue, descriptionValue, sourceValue, linkValue) 
+     _addCard(urlToImageValue, publishedAtValue, titleValue, descriptionValue, sourceValue, linkValue) {
+      const cardElement = this.newsCard.createCard(urlToImageValue, publishedAtValue, titleValue, descriptionValue, sourceValue, linkValue) 
 
-      this.cards.push(cardElement);
+      this.container.appendChild(cardElement);
     }
-    load(arr, element) {    
-              this.addCard(element.urlToImage, element.publishedAt, element.title, element.description, element.source.name, element.url)
+    
+    load(resultArray, element) {    
+              this._addCard(element.urlToImage, element.publishedAt, element.title, element.description, element.source.name, element.url)
     } 
 }

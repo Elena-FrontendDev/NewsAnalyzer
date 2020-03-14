@@ -1,17 +1,9 @@
 import "./pages-css/about.css";
 
 import Flickity from 'flickity'
-import GithubApi from './js/modules/GithubApi'
-import CommitCardList from './js/components/CommitCardList'
-import CommitCard from './js/components/CommitCard'
-
-import {commitPreloader} from './js/utils/preloader'
-import {showAboutError} from './js/utils/error'
-
-
-const githubApi = new GithubApi();
-const commitCard = new CommitCard();
-const commitCardList = new CommitCardList(commitCard);
+import {commitPreloader} from './js/utils/preloaderForCommits'
+import {showAboutError} from './js/utils/errorForAboutPage'
+import {githubApi, commitCardList} from './js/constants/constForAboutPage';
 
 //получаем ответ с githubApi и затем создаем контейнер с карточками и полсе добавляем слайдер Flickity
 
@@ -34,6 +26,7 @@ window.onload = function() {
         })
       .catch((err)=> {
         console.log(`Ошибка: ${err}`);
+        commitPreloader(false);
         showAboutError();
       })
   }

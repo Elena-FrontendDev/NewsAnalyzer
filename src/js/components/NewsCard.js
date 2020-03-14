@@ -10,7 +10,7 @@ export default class NewsCard {
         const resultCard = document.createElement("div");
         resultCard.classList.add("result__card");
     
-        resultCard.innerHTML = cardInner;
+        resultCard.insertAdjacentHTML('afterbegin', cardInner);
                        
                         resultCard.querySelector(".card__image").src = urlToImageValue;
                         resultCard.querySelector(".card__data").textContent = ((new Date(publishedAtValue).toLocaleDateString('ru', {day: 'numeric', month: 'long'})) + ', ' + new Date(publishedAtValue).getFullYear());;
@@ -18,10 +18,8 @@ export default class NewsCard {
                         resultCard.querySelector(".card__description").textContent = descriptionValue;
                         resultCard.querySelector(".card__source").textContent = sourceValue;
                         resultCard.querySelector(".card__link").href = linkValue;
-                
-                        document.querySelector('.result__cards') .appendChild(resultCard);
                         
         return resultCard;
     }
   
-  }
+}
