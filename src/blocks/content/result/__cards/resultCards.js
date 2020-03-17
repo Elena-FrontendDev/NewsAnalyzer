@@ -1,4 +1,4 @@
- const resultCards = [
+ /* const resultCards = [
     {
         urlToImage: './images/card1.png',
         publishedAt: '2 августа, 2019',
@@ -55,3 +55,4 @@
 ]; 
 
 export {resultCards};
+*/

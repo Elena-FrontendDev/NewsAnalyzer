@@ -4,6 +4,7 @@
 @import url('./__title/card__title.css');
 @import url('./__description/card__description.css');
 @import url('./__source/card__source.css');
+@import url('./__link/card__link.css');
 
 .result__card {
     display: flex;
@@ -11,10 +12,9 @@
     background-color: #FFFFFF;
     overflow: hidden;
     border-radius: 16px;
-    height: 576px;
-    width: 100%;
+    
 }
-
+/*
 @media screen and (max-width: 812px) 
 {
     .result__card {
@@ -34,4 +34,4 @@
     .result__card {
         height: 446px;
     }
-}
+} */
