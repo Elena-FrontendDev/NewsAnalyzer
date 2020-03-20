@@ -144,6 +144,13 @@ https://flickity.metafizzy.co
   }
 }
 
+@media screen and (max-width: 396px) 
+{
+  .flickity-page-dots {
+    bottom: -40px;
+  }
+}
+
 @media screen and (max-width: 1024px) 
 {
   .flickity-button {

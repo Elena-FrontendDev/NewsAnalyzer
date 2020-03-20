@@ -10,12 +10,13 @@
 {
     .card__info {
         margin: 16px;
+        height: 234px;
     }
 }
 
 @media screen and (max-width: 414px) 
 {
     .card__info {
-        height: 250px
+        height: 214px;
     }
 }

@@ -1,7 +1,7 @@
 @import url('../_black/link__item_black.css');
 
 .link__item {
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-size: 18px;
     line-height: 24px;

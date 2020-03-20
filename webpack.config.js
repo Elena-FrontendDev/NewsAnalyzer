@@ -1,13 +1,13 @@
-// webpack.config.js
+//webpack.config.js
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const WebpackMd5Hash = require('webpack-md5-hash'); 
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// подключаем плагин
-const isDev = process.env.NODE_ENV === 'development';
 // создаем переменную для development-сборки
+const isDev = process.env.NODE_ENV === 'development';
+
 
 module.exports = {
   entry: { 
@@ -17,8 +17,9 @@ module.exports = {
 },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: './scripts/[name].[chunkhash].js'
   },
+  
   module: {
     rules: [
       {
@@ -41,7 +42,7 @@ module.exports = {
         {
             test: /\.css$/i,
             use: [
-                (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+                (isDev ? 'style-loader' : {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}),
                 'css-loader', 
                 'postcss-loader'
             ]
@@ -59,7 +60,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({ // 
-      filename: 'style.[contenthash].css',
+      filename: './styles/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,

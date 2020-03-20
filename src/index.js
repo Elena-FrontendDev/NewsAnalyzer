@@ -6,6 +6,9 @@ import {showPreloader} from './js/utils/preloader'
 import {showMainError} from './js/utils/error'
 import '../src/images/image__error.jpg'
 import '../src/images/not-found_v1.png'
+import '../src/blocks/content/search/__image/background_georgia.png'
+import '../src/blocks/content/search/__image/background_georgia_Ipad.png'
+import '../src/blocks/content/search/__image/background_georgia_Iphone.png'
 
 
 //при событии submit формы поиска - обрабатываем запрос, 

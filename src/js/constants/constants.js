@@ -17,6 +17,6 @@ export const commitInner = `<h6 class="carousel__data"></h6>
                             </div>
                             <p class="carousel__commit plane-text"></p>`;
                             
-export const buttonMoreInner =  `<div class="result__button">
+export const buttonMoreInner =  `<button class="result__button">
                                     <h6 class="plane-text button__text"></h6>
-                                </div>`;
+                                </button>`;

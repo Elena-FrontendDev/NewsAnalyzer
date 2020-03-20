@@ -1,8 +1,3 @@
 .button__text {
     margin: auto;
 }
-
-.button__text:hover {
-    color: #2F71E5;
-    cursor: pointer;
-}

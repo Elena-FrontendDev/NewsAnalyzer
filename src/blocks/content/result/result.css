@@ -28,12 +28,3 @@
         padding-bottom: 33px;
     }
 }
-
-.class {
-    background-image: url('./__card/__image/images/card1.png');
-    background-image: url('./__card/__image/images/card2.png');
-    background-image: url('./__card/__image/images/card3.png');
-    background-image: url('./__card/__image/images/card4.png');
-    background-image: url('./__card/__image/images/card5.png');
-    background-image: url('./__card/__image/images/card6.png');
-}
