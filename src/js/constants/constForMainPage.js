@@ -9,6 +9,7 @@ import DataStorage from '../modules/DataStorage';
 const resultList = document.querySelector('.result');
 const resultCardsList = document.querySelector('.result__cards');
 const resultListIsOpened = document.querySelector('.result__cards-is-opened');
+const numbersOfCardsForShow = 3;
 
 const validate = new Validate();
 const newsApi = new NewsApi(options);
@@ -32,5 +33,6 @@ export {validate,
         resultList, 
         resultCardsList,
         resultListIsOpened, 
+        numbersOfCardsForShow,
         error
     }

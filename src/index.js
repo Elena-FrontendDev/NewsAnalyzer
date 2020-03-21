@@ -11,23 +11,9 @@ import '../src/blocks/content/search/__image/background_georgia_Ipad.png'
 import '../src/blocks/content/search/__image/background_georgia_Iphone.png'
 
 
-//при событии submit формы поиска - обрабатываем запрос, 
-//выводим результат и удаляем блок, если был предыдущий запрос
-
-  searchForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    //validate.checkInput();
-    searchInput.setAttribute('disabled', true);
-    searchButton.setAttribute('disabled', true);
-    resetAnswer(); 
-    const request = searchInput.value;
-    renderRequest (newsApi, request);
-  });
-
 
 //отправим запрос к Api, запишем результат в localStorage, 
 //если есть статьи - выведем блок с карточками, если нет - выведем блок 'ничего не найдено'
-
 function renderRequest (api, request) {
     showPreloader(true);
     api.getNews(request)
@@ -57,19 +43,16 @@ function renderRequest (api, request) {
 };
 
 
-//при изменении в поле input - разблокируем кнопку submit
-
-searchInput.addEventListener('input', function () {
-  event.preventDefault();
-  validate.checkInput();
-  //searchButton.removeAttribute('disabled', true)
-});
+//Функция для разблокирования поля ввода и кнопки submit
+function formActivate () {
+  searchInput.setAttribute('disabled', true);
+  searchButton.setAttribute('disabled', true);
+};
 
 
 //при открытии страницы, проверяем была ли запись в localstorage 
 //если был запрос пользователя - выводим его в поле формы и выводим результат на основании массива статей в localstorage
-
- window.onload = function() {
+ window.onload = () => {
      const request = dataStorage.getSearchRequest();
      const resultArray = dataStorage.getCardsArray();
 
@@ -83,3 +66,19 @@ searchInput.addEventListener('input', function () {
           showEmptyResultError();
         }
  }
+
+
+//Проверяем, что поле запроса не пустое
+searchInput.addEventListener('input', () => {
+  validate.checkInput();
+});
+
+
+//при событии submit формы поиска - обрабатываем запрос, 
+//очищаем блок результатов, если был предыдущий запрос и выводим результат нового запроса
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  formActivate();
+  resetAnswer();
+  renderRequest (newsApi, searchInput.value);
+});

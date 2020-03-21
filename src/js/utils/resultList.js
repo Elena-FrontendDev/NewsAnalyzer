@@ -1,4 +1,4 @@
-import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, error} from '../constants/constForMainPage';
+import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, numbersOfCardsForShow, error} from '../constants/constForMainPage';
 import {buttonMoreInner} from '../constants/constants';
 
 
@@ -51,15 +51,15 @@ export function showEmptyResultError() {
 export function openCards (resultArray, cardsStart) {
 
 
-  if ((resultArray.length - cardsStart) <= 3) {   
+  if ((resultArray.length - cardsStart) <= numbersOfCardsForShow) {   
     for (let index = cardsStart; index < resultArray.length; index++) {
    const element = resultArray[index]; 
    newsCardList.load(resultArray, element);   
     }
     
   }
-  else if ((resultArray.length - cardsStart)  > 3) {
-    for (let index = cardsStart; index < cardsStart + 3; index++) {
+  else if ((resultArray.length - cardsStart)  > numbersOfCardsForShow) {
+    for (let index = cardsStart; index < cardsStart + numbersOfCardsForShow; index++) {
       const element = resultArray[index];
      newsCardList.load(resultArray, element);  
   }
@@ -72,7 +72,7 @@ export function openCards (resultArray, cardsStart) {
 
       buttonMore.addEventListener('click', function() {
         resultList.removeChild(buttonMore);
-        openCards(resultArray, cardsStart = cardsStart + 3);
+        openCards(resultArray, cardsStart = cardsStart + numbersOfCardsForShow);
   })
 } 
 }
