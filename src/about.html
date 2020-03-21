@@ -57,7 +57,11 @@
             </section>
 
             <section class="author">
-                    <img class="author__image" alt="Фото автора" src="<%=require('./images/real_author.jpg').default%>">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="<%=require('./images/author_small.jpg').default%>">
+                        <source srcset="<%=require('./images/real_author.jpg').default%>">   
+                        <img class="author__image" alt="Фото автора" src="<%=require('./images/real_author.jpg').default%>">
+                    </picture>
                     <div class="author__info">
                         <h2 class="author__title">Об авторе</h2>
                         <p class="plane-text author__paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
