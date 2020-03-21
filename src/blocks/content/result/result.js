@@ -1,5 +1,5 @@
-import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, numbersOfCardsForShow, error} from '../constants/constForMainPage';
-import {buttonMoreInner} from '../constants/constants';
+import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, numbersOfCardsForShow, error} from '../../../js/constants/constForMainPage';
+import {buttonMoreInner} from '../../../js/constants/constants';
 
 
 

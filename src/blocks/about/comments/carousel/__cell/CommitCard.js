@@ -1,4 +1,4 @@
-import {commitInner} from '../constants/constants'
+import {commitInner} from '../../../../../js/constants/constants'
 
 //класс для создания карточки коммита с gitHubApi
 

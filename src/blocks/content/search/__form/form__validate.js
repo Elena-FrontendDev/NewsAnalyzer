@@ -1,4 +1,4 @@
-import {searchInput, searchButton} from '../constants/constForMainPage'
+import {searchInput, searchButton, errorMessage} from '../../../../js/constants/constForMainPage'
 
 //Класс для проверки поля ввода формы
 export default class Validate {
@@ -9,7 +9,7 @@ export default class Validate {
         if (!searchInput.checkValidity()) {
             
             if (searchInput.validity.valueMissing) {
-              error = 'Пожалуйста, введите запрос';              //если поле пустое выводим ошибку
+              error = errorMessage;                         //если поле пустое выводим ошибку
               searchButton.setAttribute('disabled', true); //и блокируем кнопку submit    
             }     
           }

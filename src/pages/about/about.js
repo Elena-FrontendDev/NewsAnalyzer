@@ -1,9 +1,9 @@
-import "./pages-css/about.css";
+import "../about/about.css";
 
 import Flickity from 'flickity'
-import {commitPreloader} from './js/utils/preloaderForCommits'
-import {showAboutError} from './js/utils/errorForAboutPage'
-import {githubApi, commitCardList, numberOfFirstCommit, numberOfLastCommit} from './js/constants/constForAboutPage';
+import {commitPreloader} from '../../blocks/content/result/__preloader/preloaderForCommits'
+import {showAboutError} from '../../blocks/content/result/__error/errorForAboutPage'
+import {githubApi, commitCardList, numberOfFirstCommit, numberOfLastCommit} from '../../js/constants/constForAboutPage';
 
 //получаем ответ с githubApi и затем создаем контейнер с карточками и полсе добавляем слайдер Flickity
 

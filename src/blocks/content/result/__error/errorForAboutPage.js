@@ -1,4 +1,4 @@
-import {commitsSlider} from '../constants/constForAboutPage';
+import {commitsSlider} from '../../../../js/constants/constForAboutPage';
 
 
 export function showAboutError() {

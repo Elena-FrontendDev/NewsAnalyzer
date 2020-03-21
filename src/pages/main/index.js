@@ -1,14 +1,14 @@
-import "./pages-css/style.css";
+import "../main/style.css";
 
-import {validate, newsApi, dataStorage, searchForm, searchInput, searchButton} from './js/constants/constForMainPage';
-import {showResultList, resetAnswer, openCards, showEmptyResultError} from './js/utils/resultList';
-import {showPreloader} from './js/utils/preloader'
-import {showMainError} from './js/utils/error'
-import '../src/images/image__error.jpg'
-import '../src/images/not-found_v1.png'
-import '../src/blocks/content/search/__image/background_georgia.png'
-import '../src/blocks/content/search/__image/background_georgia_Ipad.png'
-import '../src/blocks/content/search/__image/background_georgia_Iphone.png'
+import {validate, newsApi, dataStorage, searchForm, searchInput, searchButton} from '../../js/constants/constForMainPage';
+import {showResultList, resetAnswer, openCards, showEmptyResultError} from '../../blocks/content/result/result';
+import {showPreloader} from '../../blocks/content/result/__preloader/preloader'
+import {showMainError} from '../../blocks/content/result/__error/error'
+import '../../images/image__error.jpg'
+import '../../images/not-found_v1.png'
+import '../../blocks/content/search/__image/background_georgia.png'
+import '../../blocks/content/search/__image/background_georgia_Ipad.png'
+import '../../blocks/content/search/__image/background_georgia_Iphone.png'
 
 
 

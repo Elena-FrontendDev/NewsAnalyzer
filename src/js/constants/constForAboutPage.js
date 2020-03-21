@@ -1,6 +1,6 @@
 import GithubApi from '../modules/GithubApi';
-import CommitCard from '../components/CommitCard';
-import CommitCardList from '../components/CommitCardList';
+import CommitCard from '../../blocks/about/comments/carousel/__cell/CommitCard';
+import CommitCardList from '../../blocks/about/comments/carousel/CommitCardList';
 
 const commitsSlider = document.querySelector('.comments__carousel');
 

@@ -1,8 +1,8 @@
-import Validate from '../utils/Validate';
+import Validate from '../../blocks/content/search/__form/form__validate';
 import {options} from '../constants/constForNewsApi';
 import NewsApi from '../modules/NewsApi';
-import NewsCard from '../components/NewsCard';
-import NewsCardList from '../components/NewsCardList';
+import NewsCard from '../../blocks/content/result/__card/result__card';
+import NewsCardList from '../../blocks/content/result/__cards/result__cards';
 import DataStorage from '../modules/DataStorage';
 
 
@@ -22,6 +22,7 @@ const searchInput = searchForm.elements.searchtext;
 const searchButton = document.querySelector('.search__button');
 
 const error = document.querySelector('.result__error');
+const errorMessage = 'Пожалуйста, введите запрос';
 
 export {validate,
         newsApi, 
@@ -34,5 +35,6 @@ export {validate,
         resultCardsList,
         resultListIsOpened, 
         numbersOfCardsForShow,
-        error
+        error,
+        errorMessage
     }
