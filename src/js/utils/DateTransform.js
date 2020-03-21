@@ -1,7 +1,9 @@
+import {numbersOfDaysForCalc} from '../constants/constants';
+
 //Класс для получения даты, дней для запроса API и построения графика
 
 export default class DateTransform {
-    constructor(numbersOfDaysForCalc) {
+    constructor() {
     this._dateNow = new Date();
     this._dateBefore = new Date();
     this.weekArray = [];
@@ -10,6 +12,8 @@ export default class DateTransform {
 
     //метод для передачи в конструктор класса NewsApi сегодняшней даты и даты 7 дней назад для запроса Api
     getDateForApi() {
+        console.log(this.daysForCalc);
+        
         this._dateBefore.setDate(this._dateNow.getDate() - this.daysForCalc);
         const dateTo = this._dateNow.getFullYear() + "-" + (this._dateNow.getMonth()+1) + "-" + this._dateNow.getDate();
         const dateFrom = this._dateBefore.getFullYear() + "-" + (this._dateBefore.getMonth()+1) + "-" + this._dateBefore.getDate();

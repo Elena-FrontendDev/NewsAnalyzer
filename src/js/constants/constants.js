@@ -1,3 +1,5 @@
+export const numbersOfDaysForCalc = 6;
+
 export const cardInner = `<a href="" class='card__link'>               
 <img class="card__image" src="" onerror="this.onerror=null; this.src='./images/image__error.jpg';"  alt="Извините, фото не найдено"></div>
                         <div class="card__info">
