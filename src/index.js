@@ -1,6 +1,6 @@
 import "./pages-css/style.css";
 
-import {newsApi, dataStorage, searchForm, searchInput, searchButton} from './js/constants/constForMainPage';
+import {validate, newsApi, dataStorage, searchForm, searchInput, searchButton} from './js/constants/constForMainPage';
 import {showResultList, resetAnswer, openCards, showEmptyResultError} from './js/utils/resultList';
 import {showPreloader} from './js/utils/preloader'
 import {showMainError} from './js/utils/error'
@@ -16,6 +16,7 @@ import '../src/blocks/content/search/__image/background_georgia_Iphone.png'
 
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
+    //validate.checkInput();
     searchInput.setAttribute('disabled', true);
     searchButton.setAttribute('disabled', true);
     resetAnswer(); 
@@ -60,6 +61,7 @@ function renderRequest (api, request) {
 
 searchInput.addEventListener('input', function () {
   event.preventDefault();
+  validate.checkInput();
   //searchButton.removeAttribute('disabled', true)
 });
 
