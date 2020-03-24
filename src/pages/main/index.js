@@ -4,7 +4,7 @@ import {validate, newsApi, dataStorage, searchForm, searchInput, searchButton} f
 import {showResultList, resetAnswer, openCards, showEmptyResultError} from '../../blocks/content/result/result';
 import {showPreloader} from '../../blocks/content/result/__preloader/preloader'
 import {showMainError} from '../../blocks/content/result/__error/error'
-import '../../images/image__error.jpg'
+import '../../blocks/content/result/__card/__image/images/image_error.jpg'
 import '../../images/not-found_v1.png'
 import '../../blocks/content/search/__image/background_georgia.png'
 import '../../blocks/content/search/__image/background_georgia_Ipad.png'

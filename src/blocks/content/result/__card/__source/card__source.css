@@ -7,14 +7,4 @@
     color: #B6BCBF;
     margin-top: 0;
     margin-bottom: 0;
-    position: absolute;
-    bottom: 0px;
-}
-
-
-@media screen and (max-width: 414px)
-{
-    .card__source {
-        margin-bottom: 4px;
-    }
 }

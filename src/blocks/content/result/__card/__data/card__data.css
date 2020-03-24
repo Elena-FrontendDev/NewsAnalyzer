@@ -6,6 +6,8 @@
 @media screen and (max-width: 414px) 
 {
     .plane-text.card__data {
-        margin-bottom: 18px;
+        margin-bottom: 33px;
+        margin-top: 7px;
+        line-height: 0px;
     }
 }
