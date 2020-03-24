@@ -2,6 +2,8 @@
     position: relative;
     border-radius: 1000px;
     margin-right: 56px;
+    width: 496px;
+    height: 496px;
 }
 
 @media screen and (max-width: 1280px) 
