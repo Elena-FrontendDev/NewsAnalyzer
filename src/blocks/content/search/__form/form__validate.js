@@ -6,7 +6,17 @@ export default class Validate {
     checkInput() {
         let error = '';
         searchButton.removeAttribute('disabled', true);
-        if (!searchInput.checkValidity()) {
+        const pattern = /[^\s]/gi;
+        let check = pattern.test(searchInput.value)
+        
+        //проверим, чтобы пользователь не ввел одни пробелы в поле ввода
+        if (!check) {
+          console.log(pattern.test(searchInput.value));
+            error = errorMessage;                         //если поле пустое выводим ошибку
+              searchButton.setAttribute('disabled', true); //и блокируем кнопку submit
+        } 
+        
+        else if (!searchInput.checkValidity()) {
             
             if (searchInput.validity.valueMissing) {
               error = errorMessage;                         //если поле пустое выводим ошибку

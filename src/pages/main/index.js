@@ -55,6 +55,7 @@ function formActivate () {
  window.onload = () => {
      const request = dataStorage.getSearchRequest();
      const resultArray = dataStorage.getCardsArray();
+     searchButton.setAttribute('disabled', true);
 
         if (request && resultArray.length !=0) {
         searchInput.value = request;
@@ -78,6 +79,7 @@ searchInput.addEventListener('input', () => {
 //очищаем блок результатов, если был предыдущий запрос и выводим результат нового запроса
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  validate.checkInput();
   formActivate();
   resetAnswer();
   renderRequest (newsApi, searchInput.value);
