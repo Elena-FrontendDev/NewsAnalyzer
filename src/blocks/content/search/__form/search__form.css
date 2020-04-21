@@ -7,7 +7,13 @@
     box-sizing: border-box;
     border-radius: 100px;
     display: flex;
+    align-items: center;
+    position: relative;
 }
+
+.search__form:focus-within {
+    border: 1.5px solid #2F71E5; /* Параметры рамки */
+  }
 
 @media screen and (max-width: 812px) 
 {

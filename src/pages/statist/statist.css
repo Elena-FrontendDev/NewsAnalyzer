@@ -1,0 +1,12 @@
+@import url('../../vendor/normalize.css');
+@import url('../../vendor/fonts/fonts.css');
+@import url('../../blocks/general/general.css');
+@import url('../../blocks/header/header.css');
+@import url('../../blocks/footer/footer.css');
+@import url('../../blocks/content/__subtitle/content__subtitle.css');
+@import url('../../blocks/plane-text/plane-text.css');
+@import url('../../blocks/plane-text/_color_gray/plane-text_color_gray.css');
+@import url('../../blocks/plane-text/_weight_bold/plane-text_weight_bold.css');
+@import url('../../blocks/content/__title/content__title.css');
+@import url('../../blocks/statist/chart-info/chart-info.css');
+@import url('../../blocks/statist/chart/chart.css');

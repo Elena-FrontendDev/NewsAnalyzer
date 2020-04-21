@@ -1,29 +1,19 @@
-import "./pages-css/style.css";
+import "../main/style.css";
 
-import {newsApi, dataStorage, searchForm, searchInput, searchButton} from './js/constants/constForMainPage';
-import {showResultList, resetAnswer, openCards, showEmptyResultError} from './js/utils/resultList';
-import {showPreloader} from './js/utils/preloader'
-import {showMainError} from './js/utils/error'
-import '../src/images/image__error.jpg'
-import '../src/images/not-found_v1.png'
+import {validate, newsApi, dataStorage, searchForm, searchInput, searchButton} from '../../js/constants/constForMainPage';
+import {showResultList, resetAnswer, openCards, showEmptyResultError} from '../../blocks/content/result/result';
+import {showPreloader} from '../../blocks/content/result/__preloader/preloader'
+import {showMainError} from '../../blocks/content/result/__error/error'
+import '../../blocks/content/result/__card/__image/images/image_error.jpg'
+import '../../images/not-found_v1.png'
+import '../../blocks/content/search/__image/background_georgia.png'
+import '../../blocks/content/search/__image/background_georgia_Ipad.png'
+import '../../blocks/content/search/__image/background_georgia_Iphone.png'
 
-
-//при событии submit формы поиска - обрабатываем запрос, 
-//выводим результат и удаляем блок, если был предыдущий запрос
-
-  searchForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    searchInput.setAttribute('disabled', true);
-    searchButton.setAttribute('disabled', true);
-    resetAnswer(); 
-    const request = searchInput.value;
-    renderRequest (newsApi, request);
-  });
 
 
 //отправим запрос к Api, запишем результат в localStorage, 
 //если есть статьи - выведем блок с карточками, если нет - выведем блок 'ничего не найдено'
-
 function renderRequest (api, request) {
     showPreloader(true);
     api.getNews(request)
@@ -53,20 +43,19 @@ function renderRequest (api, request) {
 };
 
 
-//при изменении в поле input - разблокируем кнопку submit
-
-searchInput.addEventListener('input', function () {
-  event.preventDefault();
-  //searchButton.removeAttribute('disabled', true)
-});
+//Функция для разблокирования поля ввода и кнопки submit
+function formActivate () {
+  searchInput.setAttribute('disabled', true);
+  searchButton.setAttribute('disabled', true);
+};
 
 
 //при открытии страницы, проверяем была ли запись в localstorage 
 //если был запрос пользователя - выводим его в поле формы и выводим результат на основании массива статей в localstorage
-
- window.onload = function() {
+ window.onload = () => {
      const request = dataStorage.getSearchRequest();
      const resultArray = dataStorage.getCardsArray();
+     searchButton.setAttribute('disabled', true);
 
         if (request && resultArray.length !=0) {
         searchInput.value = request;
@@ -78,3 +67,20 @@ searchInput.addEventListener('input', function () {
           showEmptyResultError();
         }
  }
+
+
+//Проверяем, что поле запроса не пустое
+searchInput.addEventListener('input', () => {
+  validate.checkInput();
+});
+
+
+//при событии submit формы поиска - обрабатываем запрос, 
+//очищаем блок результатов, если был предыдущий запрос и выводим результат нового запроса
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  validate.checkInput();
+  formActivate();
+  resetAnswer();
+  renderRequest (newsApi, searchInput.value);
+});

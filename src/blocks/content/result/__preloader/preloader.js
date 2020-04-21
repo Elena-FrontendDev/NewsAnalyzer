@@ -1,4 +1,4 @@
-import {resultList} from '../constants/constForMainPage';
+import {resultList} from '../../../../js/constants/constForMainPage';
 
 export function showPreloader(isLoading) {
 

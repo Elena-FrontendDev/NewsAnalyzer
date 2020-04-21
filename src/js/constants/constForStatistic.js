@@ -1,8 +1,7 @@
-import "./pages-css/statist.css";
+import Statistics from '../../blocks/statist/chart/chart'
+import DateTransform from '../../js/utils/DateTransform';
+import DataStorage from '../../js/modules/DataStorage';
 
-import Statistics from './js/components/Statistics'
-import DateTransform from './js/utils/DateTransform';
-import DataStorage from './js/modules/DataStorage';
 
 const dataStorage = new DataStorage();
 const cardsArray = dataStorage.getCardsArray();
@@ -15,8 +14,4 @@ const month = dateTransform.getMonth();
 
 const statistics = new Statistics(cardsArray, searchRequest, weekArray, datesForChart, month);
 
-window.onload = function() {
-     statistics.setRequest();
-     statistics.makeYaxisForChart();
-     statistics.checkHeaders();
-    }
+export {statistics};

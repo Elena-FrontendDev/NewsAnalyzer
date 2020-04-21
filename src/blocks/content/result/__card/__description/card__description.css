@@ -10,7 +10,7 @@
 @media screen and (max-width: 812px) 
 {.plane-text.card__description {
     -webkit-line-clamp: 4;
-    margin-top: 10px;
+    margin-top: 4px;
     margin-bottom: 12px;
 }}
 

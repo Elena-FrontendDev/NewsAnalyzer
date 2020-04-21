@@ -1,24 +1,25 @@
-// webpack.config.js
+//webpack.config.js
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const WebpackMd5Hash = require('webpack-md5-hash'); 
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// подключаем плагин
-const isDev = process.env.NODE_ENV === 'development';
 // создаем переменную для development-сборки
+const isDev = process.env.NODE_ENV === 'development';
+
 
 module.exports = {
   entry: { 
-      main: './src/index.js',
-      about: './src/about.js',
-      statistics: './src/statist.js'
+      main: './src/pages/main/index.js',
+      about: './src/pages/about/about.js',
+      statistics: './src/pages/statist/statist.js'
 },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: './scripts/[name].[chunkhash].js'
   },
+  
   module: {
     rules: [
       {
@@ -41,7 +42,7 @@ module.exports = {
         {
             test: /\.css$/i,
             use: [
-                (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+                (isDev ? 'style-loader' : {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}),
                 'css-loader', 
                 'postcss-loader'
             ]
@@ -59,7 +60,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({ // 
-      filename: 'style.[contenthash].css',
+      filename: './styles/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
@@ -71,17 +72,17 @@ module.exports = {
    }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index.html',
+      template: './src/pages/main/index.html',
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
         inject: false,
-        template: './src/about.html',
+        template: './src/pages/about/about.html',
         filename: 'about.html'
       }),
     new HtmlWebpackPlugin({
         inject: false,
-        template: './src/statist.html',
+        template: './src/pages/statist/statist.html',
         filename: 'statist.html'
       }),
     new WebpackMd5Hash(),

@@ -1,14 +1,17 @@
+import Validate from '../../blocks/content/search/__form/form__validate';
 import {options} from '../constants/constForNewsApi';
 import NewsApi from '../modules/NewsApi';
-import NewsCard from '../components/NewsCard';
-import NewsCardList from '../components/NewsCardList';
+import NewsCard from '../../blocks/content/result/__card/result__card';
+import NewsCardList from '../../blocks/content/result/__cards/result__cards';
 import DataStorage from '../modules/DataStorage';
 
 
 const resultList = document.querySelector('.result');
 const resultCardsList = document.querySelector('.result__cards');
 const resultListIsOpened = document.querySelector('.result__cards-is-opened');
+const numbersOfCardsForShow = 3;
 
+const validate = new Validate();
 const newsApi = new NewsApi(options);
 const newsCard = new NewsCard();
 const newsCardList = new NewsCardList(newsCard, resultCardsList); 
@@ -19,8 +22,10 @@ const searchInput = searchForm.elements.searchtext;
 const searchButton = document.querySelector('.search__button');
 
 const error = document.querySelector('.result__error');
+const errorMessage = 'Пожалуйста, введите запрос';
 
-export {newsApi, 
+export {validate,
+        newsApi, 
         newsCardList, 
         dataStorage, 
         searchForm, 
@@ -29,5 +34,7 @@ export {newsApi,
         resultList, 
         resultCardsList,
         resultListIsOpened, 
-        error
+        numbersOfCardsForShow,
+        error,
+        errorMessage
     }

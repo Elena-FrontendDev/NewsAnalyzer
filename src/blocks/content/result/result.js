@@ -1,10 +1,11 @@
-import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, error} from '../constants/constForMainPage';
-import {buttonMoreInner} from '../constants/constants';
+import {newsCardList, searchButton, resultList, resultCardsList, resultListIsOpened, numbersOfCardsForShow, error} from '../../../js/constants/constForMainPage';
+import {buttonMoreInner} from '../../../js/constants/constants';
 
 
 
 //функция для создания блока результатов поиска по кнопке submit
 export function showResultList() {
+    searchButton.removeAttribute('disabled', true);
     resultList.classList.add("result-is-opened");
     const resultInfo = document.createElement("div");
     resultInfo.classList.add("result__info");
@@ -22,10 +23,8 @@ export function showResultList() {
 //функция для удаления информации из блока результатов по поиску предыдущего запроса, если пользователь ввел новый запрос
 export function resetAnswer () {
     if (!resultListIsOpened) {
-        //resultList.innerHTML = '';
         while (resultList.firstChild) resultList.removeChild(resultList.firstChild);
-        resultList.classList.remove('result-is-opened')
-        //resultCardsList.innerHTML = '';
+        resultList.classList.remove('result-is-opened');
         while (resultCardsList.firstChild) resultCardsList.removeChild(resultCardsList.firstChild);
        
     }
@@ -37,7 +36,7 @@ export function resetAnswer () {
 
 //функция для создания блока ошибки, если по запросу ничего не найдено
 export function showEmptyResultError() {
-  
+    searchButton.removeAttribute('disabled', true);
     const resultError = document.createElement("div");
             resultError.classList.add("result__error");
             resultError.insertAdjacentHTML('afterbegin', `<div class="error__image"></div>
@@ -51,15 +50,15 @@ export function showEmptyResultError() {
 export function openCards (resultArray, cardsStart) {
 
 
-  if ((resultArray.length - cardsStart) <= 3) {   
+  if ((resultArray.length - cardsStart) <= numbersOfCardsForShow) {   
     for (let index = cardsStart; index < resultArray.length; index++) {
    const element = resultArray[index]; 
    newsCardList.load(resultArray, element);   
     }
     
   }
-  else if ((resultArray.length - cardsStart)  > 3) {
-    for (let index = cardsStart; index < cardsStart + 3; index++) {
+  else if ((resultArray.length - cardsStart)  > numbersOfCardsForShow) {
+    for (let index = cardsStart; index < cardsStart + numbersOfCardsForShow; index++) {
       const element = resultArray[index];
      newsCardList.load(resultArray, element);  
   }
@@ -72,7 +71,7 @@ export function openCards (resultArray, cardsStart) {
 
       buttonMore.addEventListener('click', function() {
         resultList.removeChild(buttonMore);
-        openCards(resultArray, cardsStart = cardsStart + 3);
+        openCards(resultArray, cardsStart = cardsStart + numbersOfCardsForShow);
   })
 } 
 }

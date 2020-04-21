@@ -15,7 +15,7 @@
     }
 }
 
-@media screen and (max-width: 414px) 
+@media screen and (max-width: 646px) 
 {
     .author {
         flex-direction: column;

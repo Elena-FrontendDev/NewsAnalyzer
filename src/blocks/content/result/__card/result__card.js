@@ -1,6 +1,6 @@
 //Класс для создания карточки новости
  
-import {cardInner} from '../constants/constants'
+import {cardInner} from '../../../../js/constants/constants'
 
 export default class NewsCard {
     constructor () {
