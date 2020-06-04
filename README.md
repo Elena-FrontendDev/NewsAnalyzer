@@ -1,7 +1,7 @@
 # *NewsAnalyzer*
 ### *Дипломный проект "Анализатор новостей"* 
 
-[v 0.0.0] https://elena-frontenddev.github.io/NewsAnalyzer/
+[v 0.1.0] https://elena-frontenddev.github.io/NewsAnalyzer/
 
 
 #### Цель:  
