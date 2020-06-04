@@ -11,7 +11,6 @@ export default class Validate {
         
         //проверим, чтобы пользователь не ввел одни пробелы в поле ввода
         if (!check) {
-          console.log(pattern.test(searchInput.value));
             error = errorMessage;                         //если поле пустое выводим ошибку
               searchButton.setAttribute('disabled', true); //и блокируем кнопку submit
         } 
