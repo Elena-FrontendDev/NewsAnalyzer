@@ -6,11 +6,12 @@ export default class NewsApi {
       this.from = options.from;
       this.to = options.to;
       this.apiKey = options.apiKey;
+      this.proxy = options.proxy;
   }
 
   
   getNews(request) {
-      return fetch(`${this.url}q=${request}&from=${this.from}&to=${this.to}&language=ru&pageSize=100&apiKey=${this.apiKey}`, 
+      return fetch(`${this.proxy + this.url}q=${request}&from=${this.from}&to=${this.to}&language=ru&pageSize=100&apiKey=${this.apiKey}`, 
       {
         headers: {authorization: this.apiKey}
       }) 
