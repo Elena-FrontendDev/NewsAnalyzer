@@ -7,7 +7,7 @@ const dateForApi = dateTransform.getDateForApi();
 const from = dateForApi.dateFrom;
 const to = dateForApi.dateTo
 
-const serverUrl = 'https://praktikum.tk/news/v2/everything?';
+const serverUrl = 'https://nomoreparties.co/news/v2/everything?';
 
 
 export const options = {
